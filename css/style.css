@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: yellow;
+  background-color: green;
 }
 
 .container {
@@ -43,6 +43,9 @@ body {
   margin: 0;
 
   position: relative;
+
+  display: flex;
+  justify-content: center;
 }
 
 .car {
@@ -53,54 +56,80 @@ body {
 
   top: 550px;
   left: 207px;
+  transition:top 0.7s ease 0s;
 }
 
 .wrapper__btns {
-  width: 100%;
+  width: 80%;
   height: 100px;
-  background-color: red;
   position: absolute;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+
+  bottom: 0;
+  opacity: 0%;
 }
 
 .btn {
   border-radius: 100%;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border: 2px solid black;
 
   position: relative;
 
-  background-color: green;
+  background-color: rgba(211, 211, 211, 0.600);
 }
 
 .btn:nth-child(1)::after {
   content: '';
   position: absolute;
-  top: 17px;
-  left: -10px;
+  top: 14px;
+  left: -7px;
 
   width: 0;
   height: 0;
 
-  border: 30px solid transparent;
-  border-left: 40px solid rgb(0, 0, 0);
+  border: 25px solid transparent;
+  border-left: 30px solid rgb(0, 0, 0);
   transform: scale(-1, 1);
 }
 
 .btn:nth-child(2)::after {
   content: '';
   position: absolute;
-  top: 17px;
-  left: 33px;
+  top: 15px;
+  left: 29px;
 
   width: 0;
   height: 0;
 
-  border: 30px solid transparent;
-  border-left: 40px solid rgb(0, 0, 0);
+  border: 25px solid transparent;
+  border-left: 30px solid rgb(0, 0, 0);
+}
+
+.speed {
+  font-size: 25px;
+  padding: 10px;
+
+  background-color: lightgray;
+  border: 2px solid black;
+  border-radius: 10px;
+
+  position: absolute;
+  right: 25px;
+  top: 10px;
+
+  height: 55px;
+  width: 150px;
+
+  text-align: center;
+}
+
+.speed:hover {
+  background-color: rgb(190, 190, 190);
+  cursor: pointer;
 }
 
 @keyframes animation-road {
@@ -110,5 +139,36 @@ body {
 
   100% {
     background-position: 0 10000px;
+  }
+}
+
+@media (max-width:550px) {
+  .car {
+    left: 190px;
+  }
+
+  .wrapper__btns {
+    opacity: 100%;
+  }
+}
+
+@media (max-width:480px) {
+  .car {
+    left: 170px;
+  }
+}
+
+@media (max-width:410px) {
+  .car {
+    left: 140px;
+  }
+}
+
+@media (max-width:380px) {
+  .car {
+    left: 135px;
+
+    width: 90px;
+    height: 180px;
   }
 }
