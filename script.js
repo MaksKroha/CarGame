@@ -1,6 +1,6 @@
 
 //$('.btn').touchStart()
-addEventListener('touchstart',function btnClick(number) {
+addEventListener('click',function btnClick(number) {
   $('.btn').css({
     'background-color': 'lightgray'
   })
