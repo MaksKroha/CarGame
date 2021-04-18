@@ -1,16 +1,50 @@
-
+var carPosition = 5;
 //$('.btn').touchStart()
-document.getElementById('btn').addEventListener('touchstart',function btnClick(number) {
+document.getElementById('btn1').addEventListener('click',function btnClickLeft(number) {
   $('.btn:nth-child(1)').css({
     'background-color': 'lightgray'
   });
   carMoveLeft();
   setTimeout(() => {
     $('.btn:nth-child(1)').css({
-    'background-color': 'blue'
-  })    
-  }, 100);
-}) 
+    'background-color': 'rgba(211, 211, 211, 0.600)'
+  });    
+  }, 200);
+})
+document.getElementById('btn2').addEventListener('click',function btnClickRight(number) {
+  $('.btn:nth-child(2)').css({
+    'background-color': 'lightgray'
+  });
+  carMoveRight();
+  setTimeout(() => {
+    $('.btn:nth-child(2)').css({
+    'background-color': 'rgba(211, 211, 211, 0.600)'
+  });    
+  }, 200);
+})
+ 
+document.getElementById('speed').addEventListener('click',function(){
+  if (!$(this).data('status')) {
+    $(this).html('Back speed');
+    $(this).data('status', true);
+    $('.road').css({
+      'animation-duration': '20s' 
+    })
+    carPosition = 10;
+    carMoveTop()
+  }
+  else {
+    $(this).html('More speed');
+    $(this).data('status', false);
+    $('.road').css({
+      'animation-duration': '40s' 
+    })
+    carPosition = 5;
+    carMoveDown()
+  }
+})
+
+
 
 
 
@@ -18,19 +52,34 @@ document.getElementById('btn').addEventListener('touchstart',function btnClick(n
 var ferarri = $('.car');
 var ferarriPosition = 207;
 function carMoveRight() {
-  ferarriPosition += 5;
+  if (ferarriPosition < 410 ) {
+    ferarriPosition += carPosition;
 
   ferarri.css({
     left: ferarriPosition,
   })
+  }
 }
 function carMoveLeft() {
-  ferarriPosition -= 5;
+  if (ferarriPosition > 30) {
+  ferarriPosition -= carPosition;
 
   ferarri.css({
     left: ferarriPosition,
   })
 }
+}
+function carMoveTop() {
+  ferarri.css({
+    top: '500px',
+  })
+}
+function carMoveDown() {
+  ferarri.css({
+    top: '550px',
+  })
+}
+
 
 
 document.onkeydown = function (key) {
