@@ -1,14 +1,15 @@
 
 //$('.btn').touchStart()
-addEventListener('click',function btnClick(number) {
-  $('.btn').css({
+document.getElementById('btn').addEventListener('touchstart',function btnClick(number) {
+  $('.btn:nth-child(1)').css({
     'background-color': 'lightgray'
-  })
+  });
+  carMoveLeft();
   setTimeout(() => {
-    $('.btn').css({
+    $('.btn:nth-child(1)').css({
     'background-color': 'blue'
   })    
-  }, 1000);
+  }, 100);
 }) 
 
 
@@ -21,7 +22,6 @@ function carMoveRight() {
 
   ferarri.css({
     left: ferarriPosition,
-    transform: 'rotate(5deg)'
   })
 }
 function carMoveLeft() {
@@ -29,7 +29,6 @@ function carMoveLeft() {
 
   ferarri.css({
     left: ferarriPosition,
-    transform: 'rotate(-5deg)'
   })
 }
 
@@ -40,9 +39,6 @@ document.onkeydown = function (key) {
  } else if (key.keyCode === 37) {
    carMoveLeft()
  }
- setTimeout(() => (ferarri.css({
-    transform: 'rotate(0deg)'
-  })), 300); 
 }
 /*function Car(y,x) {
   this.y = y;
