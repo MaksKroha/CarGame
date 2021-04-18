@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: yellow;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+
+  background-color: green;
+}
+
+.grass {
+  width: 100%;
+  height: 100%;
+
+  background-image: url();
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 0;
+}
+
+.road {
+  width: 550px;
+  height: 804px;
+  background-color: red;
+  background-image: url(../img/Road.png);
+  background-size: cover;
+  background-position: 0 -0px;
+  background-repeat: repeat-y;
+
+  animation: animation-road 40s linear 0s infinite;
+
+  margin: 0;
+
+  position: relative;
+}
+
+.car {
+  width: 115px;
+  height: 225px;
+
+  position: absolute;
+
+  top: 550px;
+  left: 207px;
+}
+
+.wrapper__btns {
+  width: 100%;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+
+  position: relative;
+
+  background-color: green;
+}
+
+.btn:nth-child(1)::after {
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: -10px;
+
+  width: 0;
+  height: 0;
+
+  border: 30px solid transparent;
+  border-left: 40px solid rgb(0, 0, 0);
+  transform: scale(-1, 1);
+}
+
+.btn:nth-child(2)::after {
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: 33px;
+
+  width: 0;
+  height: 0;
+
+  border: 30px solid transparent;
+  border-left: 40px solid rgb(0, 0, 0);
+}
+
+@keyframes animation-road {
+  0% {
+    background-position: 0 -1000px;
+  }
+
+  100% {
+    background-position: 0 10000px;
+  }
+}
